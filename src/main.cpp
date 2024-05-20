@@ -1,20 +1,24 @@
-#include <iostream>
 #include <raylib.h>
-
-using namespace std;
+#include"grid.hpp"
 
 int main () {
 
-    const int screenWidth = 1200;
-    const int screenHeight = 800;
+    Color grey= { 29,29,29,255};
+    const int screenWidth = 750;
+    const int screenHeight = 750;
+    const int cellSize =25;
+    int FPS=12;
 
-    InitWindow(screenWidth, screenHeight, "program");
-    SetTargetFPS(120);
+    InitWindow(screenWidth, screenHeight, "Game of life");
+    SetTargetFPS(FPS);
+    Grid grid{screenWidth,screenHeight,cellSize};
 
     while (WindowShouldClose() == false){
-        BeginDrawing();
-        ClearBackground(BLACK);
 
+
+        BeginDrawing();
+        ClearBackground(grey);
+        grid.Draw();
         EndDrawing();
     }
 
