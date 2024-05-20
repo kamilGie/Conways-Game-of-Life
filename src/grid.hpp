@@ -11,6 +11,7 @@ class Grid {
     bool isWithinBounds(int row ,int column);
     int getRows() { return rows;}
     int getColumns() { return columns;}
+    void FillRandom();
    private:
     int rows;
     int columns;
