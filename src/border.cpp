@@ -32,10 +32,10 @@ void Border::LowerBorderDraw() {
     DrawText("stop",controlsGrid+40,controlsHeightDownPos,5,GREEN);
     DrawText("SPACE",controlsGrid,controlsHeightDownPos,10,WHITE);
 
-    DrawText("Incrase max fps",controlsGrid*3+10,controlsHeightUpPos,5,GREEN);
+    DrawText("Increase max fps",controlsGrid*3+10,controlsHeightUpPos,5,GREEN);
     DrawText("F",controlsGrid*3,controlsHeightUpPos,10,WHITE);
 
-    DrawText("Decrase max fps",controlsGrid*3+10,controlsHeightDownPos,5,GREEN);
+    DrawText("Decrease max fps",controlsGrid*3+10,controlsHeightDownPos,5,GREEN);
     DrawText("S",controlsGrid*3,controlsHeightDownPos,10,WHITE);
 
     DrawText("Fill Board",controlsGrid*6+10,controlsHeightUpPos,5,GREEN);

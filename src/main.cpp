@@ -1,14 +1,36 @@
 #include <raylib.h>
+
+#include <fstream>
+
 #include "game.hpp"
 
+struct Screen {
+    Screen() {
+        std::ifstream inputFile("parameters.txt");
+        std::string napis;
+        while (inputFile >> napis) {
+            if (napis == "screenWidth:") {
+                inputFile >> Width;
+            } else if (napis == "screenHeight:") {
+                inputFile >> Height;
+            } else {
+                inputFile >> cellSize;
+            }
+        }
+        inputFile.close();
+    }
+
+    int Width;
+    int Height;
+    int cellSize;
+};
+
 int main() {
-    const int screenWidth = 500;
-    const int screenHeight = 500;
-    const int cellSize = 10;
+    Screen screen;
 
     SetTargetFPS(12);
-    InitWindow(screenWidth, screenHeight, "Game of life");
-    Game game(screenWidth,screenHeight,cellSize);
+    InitWindow(screen.Width, screen.Height, "Game of life");
+    Game game(screen.Width, screen.Height, screen.cellSize);
 
     while (!WindowShouldClose()) {
         game.HandleInput();
