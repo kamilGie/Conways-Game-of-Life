@@ -4,7 +4,7 @@
 int main() {
     const int screenWidth = 500;
     const int screenHeight = 500;
-    const int cellSize = 4;
+    const int cellSize = 10;
 
     SetTargetFPS(12);
     InitWindow(screenWidth, screenHeight, "Game of life");
