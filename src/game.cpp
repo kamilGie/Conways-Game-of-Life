@@ -1,13 +1,13 @@
 #include "game.hpp"
 
 Game::Game(int width, int height, int cellSize) 
-    :FPS(12),screenWidth(width),screenHeight(height),cellSize(cellSize),simulation(screenWidth, screenHeight, cellSize){}
+    :screenWidth(width),screenHeight(height),cellSize(cellSize),simulation(screenWidth, screenHeight, cellSize),border(screenWidth, screenHeight, cellSize){}
 
 
 void Game::HandleInput() {
     if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
         Vector2 mousePosition = GetMousePosition();
-        simulation.ToggleCell(mousePosition.y / cellSize, mousePosition.x / cellSize);
+        simulation.ToggleCell((mousePosition.y-offset) / cellSize, mousePosition.x / cellSize);
     }
 
     if (IsKeyPressed(KEY_ENTER)) {
@@ -19,9 +19,11 @@ void Game::HandleInput() {
     } else if (IsKeyPressed(KEY_F)) {
         FPS += 2;
         SetTargetFPS(FPS);
+        border.SetMaxFps(FPS);
     } else if (IsKeyPressed(KEY_S) && FPS > 5) {
         FPS -= 2;
         SetTargetFPS(FPS);
+        border.SetMaxFps(FPS);
     } else if (IsKeyPressed(KEY_R)) {
         simulation.CreateRandomState();
     } else if (IsKeyPressed(KEY_C)) {
@@ -37,5 +39,6 @@ void Game::Draw() {
     BeginDrawing();
     ClearBackground(grey);
     simulation.Draw();
+    border.Draw();
     EndDrawing();
 }

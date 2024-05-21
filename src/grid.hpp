@@ -20,5 +20,6 @@ class Grid {
     int rows;
     int columns;
     int cellSize;
+    int offset=50;
     std::vector<std::vector<int>> cells;
 };
