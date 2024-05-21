@@ -38,3 +38,18 @@ void Grid::FillRandom() {
         }
     }
 }
+
+void Grid::Clear() {
+    for(int row = 0 ;row<rows;row++){
+        for(int column = 0 ; column<columns;column++){
+            cells[row][column] =0;
+        }
+
+    }
+}
+
+void Grid::ToggleCell(int row, int column) {
+    if(isWithinBounds(row,column)){
+        cells[row][column]=!cells[row][column];
+    }
+}
