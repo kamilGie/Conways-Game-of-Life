@@ -7,11 +7,11 @@
 struct Screen {
     Screen() {
         std::ifstream inputFile("parameters.txt");
-        std::string napis;
-        while (inputFile >> napis) {
-            if (napis == "screenWidth:") {
+        std::string text;
+        while (inputFile >> text) {
+            if (text == "screenWidth:") {
                 inputFile >> Width;
-            } else if (napis == "screenHeight:") {
+            } else if (text == "screenHeight:") {
                 inputFile >> Height;
             } else {
                 inputFile >> cellSize;
