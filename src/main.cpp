@@ -1,29 +1,6 @@
 #include <raylib.h>
-
-#include <fstream>
-
 #include "game.hpp"
-
-struct Screen {
-    Screen() {
-        std::ifstream inputFile("parameters.txt");
-        std::string text;
-        while (inputFile >> text) {
-            if (text == "screenWidth:") {
-                inputFile >> Width;
-            } else if (text == "screenHeight:") {
-                inputFile >> Height;
-            } else {
-                inputFile >> cellSize;
-            }
-        }
-        inputFile.close();
-    }
-
-    int Width;
-    int Height;
-    int cellSize;
-};
+#include "screen.hpp"
 
 int main() {
     Screen screen;
